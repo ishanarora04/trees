@@ -38,5 +38,5 @@ class BST:
         else:
             return False
 
-    def height(self):
-        return 1 + max(self.left.height() if self.left is not None else 0, self.right.height() if self.right is not None else 0)
+    def max_height(self):
+        return 1 + max(self.left.max_height() if self.left is not None else 0, self.right.max_height() if self.right is not None else 0)
