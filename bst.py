@@ -1,3 +1,6 @@
+import math
+
+
 class BST:
     def __init__(self, value):
         self.value = value
@@ -18,7 +21,6 @@ class BST:
             else:
                 self.right.add_elem(value)
 
-
     def transverse(self):
         print(self.value)
         if self.left is not None:
@@ -26,13 +28,15 @@ class BST:
         if self.right is not None:
             self.right.transverse()
 
-
     def search(self, value):
         if self.value == value:
             return True
         elif self.value > value and self.left is not None:
             return self.left.search(value)
         elif self.value < value and self.right is not None:
-            return self.right.search(value) 
+            return self.right.search(value)
         else:
-            return False 
+            return False
+
+    def height(self):
+        return 1 + max(self.left.height() if self.left is not None else 0, self.right.height() if self.right is not None else 0)
